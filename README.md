@@ -1,5 +1,2 @@
-# practicas-cm
-
-Prácticas 'Continguts Multimédia'
-
+# Continguts-Multimèdia
 Adrián Zarzuela Melguizo

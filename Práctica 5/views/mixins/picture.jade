@@ -1,0 +1,13 @@
+mixin picture(pics)
+	div.col-md-3.product-box
+		article.imagen
+			img(src=pics.image, width="150")
+			p #{pics.titulo}
+			p #{pics.getPrice()} €
+			input.boton(type="button", value="Comprar", onclick="comprar('#{pics.titulo}', '#{pics.getPrice()}');")
+
+
+
+
+
+

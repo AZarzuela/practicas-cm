@@ -1,0 +1,10 @@
+extends base
+include mixins/picture
+
+block content
+	.jumbotron
+		h1 Playas de Punta Cana 
+	div.row
+		- for (var i = 0; i < pics.length; ++i) {
+			+picture(pics[i])
+		- }

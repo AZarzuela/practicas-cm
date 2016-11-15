@@ -1,0 +1,30 @@
+
+h1{
+	color: #0000FF;
+}
+
+h2{
+	color: #4169E1;
+}
+
+img{
+	width: 20%;
+	height: 300px;
+}
+
+body{
+	font-family: Verdana;
+}
+/*  # = Modificar los id's que son únicos
+	. = Modifico las clases
+	contenedor = coge todo el cuerpo que hay entre los <div> y </div>
+ */
+ 
+#contenedor { 
+	width: 1000px;
+	margin: 0 auto;
+}
+
+.azul{
+	color:blue;
+}

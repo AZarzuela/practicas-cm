@@ -1,0 +1,146 @@
+<!doctype html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8" />
+    <title>Calculadora</title>
+    <script type="text/javascript" src="phaser.min.js"></script>
+</head>
+<body>
+
+<script type="text/javascript">
+
+var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create });
+
+function preload() {
+
+    game.load.image('boton-0', 'images/siete.png');
+    game.load.image('boton-1', 'images/cuatro.png');
+    game.load.image('boton-2', 'images/uno.png');
+    game.load.image('boton-3', 'images/igual.png');
+    game.load.image('boton-4', 'images/ocho.png');
+    game.load.image('boton-5', 'images/cinco.png');
+    game.load.image('boton-6', 'images/dos.png');
+    game.load.image('boton-7', 'images/cero.png');
+    game.load.image('boton-8', 'images/nueve.png');
+    game.load.image('boton-9', 'images/seis.png');
+    game.load.image('boton-10', 'images/tres.png');
+    game.load.image('boton-11', 'images/division.png');
+    game.load.image('boton-12', 'images/clear.png');
+    game.load.image('boton-13', 'images/multiply.png');
+    game.load.image('boton-14', 'images/restar.png');
+    game.load.image('boton-15', 'images/add.png');
+
+}
+
+var a = "", b = "", c = 0, res = 0, llave = "", text;
+
+function create() {
+
+    game.stage.backgroundColor = '#DDDDDD';
+    var style = { font: "32px Arial", fill: "#ff0044", align: "center" };
+    text = game.add.text(100, 400, "", style);
+
+    var n = 0;
+    for (var i = 0; i < 4; i++){
+	    for(var j = 0; j < 4; j++){
+	        var key = "boton-"+n;
+	        game.add.button(i * 100, j * 100, key, actionOnClick, {keyname:n}, 0, 0, 0);
+	        n++;
+	    }
+    } 
+}
+
+function actionOnClick () {
+
+    llave = this.keyname;
+
+    if (llave==0){
+        if(c == 0) a += String(7);
+        else b += String(7);
+    }
+    else if (llave==1){
+        if(c==0) a+=String(4);
+        else b+=String(4);
+    }
+    else if (llave==2){
+        if(c==0) a+=String(1);
+        else b+=String(1);
+    }
+    else if (llave==7){
+        if(c==0) a+=String(0);
+        else b+=String(0);
+    }
+    else if (llave==4){
+        if(c==0) a+=String(8);
+        else b+=String(8);
+    }
+    else if (llave==5){
+        if(c==0) a+=String(5);
+        else b+=String(5);
+    }
+    else if (llave==6){
+        if(c==0) a+=String(2);
+        else b+=String(2);
+    }
+    else if (llave==8){
+        if(c==0) a+=String(9);
+        else b+=String(9);
+    }
+    else if (llave==9){
+        if(c==0) a+=String(6);
+        else b+=String(6);
+    }
+    else if (llave==10){
+        if(c==0) a+=String(3);
+        else b+=String(3);
+    }
+
+    else if (llave == 11 || llave == 13 || llave == 14 || llave == 15){
+        c=llave;
+    }
+
+    else if(llave==3){
+
+       if (c==15){
+            res=Number(a)+Number(b);
+       }
+       else if (c==14){
+            res=Number(a)-Number(b);
+       }
+       else if (c==13){
+            res=Number(a)*Number(b);
+       }
+       else if (c==11){
+            res=Number(a)/Number(b);
+       }
+       else {
+	    res=Number(a);
+       }
+
+       text.text = "RESULTADO: " + String(res);
+       a = res;
+       res = 0;
+       c = 0;
+       b = "";
+
+    }
+    else {
+        res = 0;
+        text.text = "RESULTADO: " + String(res);
+
+        c = 0;
+        a = "";
+        b = "";
+    }
+}
+
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
